@@ -1,4 +1,4 @@
-package es.raulminon.bussines;
+package es.raulminon.busines;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +8,10 @@ import es.raulminon.data.api.TodoService;
 // TodoBussinessImpl SUT (System under test)
 // TodoServie dependency
 
-public class TodoBussinessImpl {
+public class TodoBusinessImpl {
 	private TodoService todoService;
 
-	public TodoBussinessImpl(TodoService todoService) {
+	public TodoBusinessImpl(TodoService todoService) {
 		this.todoService = todoService;
 	}
 	
@@ -23,7 +23,7 @@ public class TodoBussinessImpl {
 				filteredTodos.add(todo);
 			}
 		}
-		return null;
+		return filteredTodos;
 	}
 	
 }
