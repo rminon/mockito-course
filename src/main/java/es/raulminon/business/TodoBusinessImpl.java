@@ -1,4 +1,4 @@
-package es.raulminon.busines;
+package es.raulminon.business;
 
 import java.util.ArrayList;
 import java.util.List;

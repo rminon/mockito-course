@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import es.raulminon.busines.TodoBusinessImpl;
+import es.raulminon.business.TodoBusinessImpl;
 import es.raulminon.data.api.TodoService;
 import es.raulminon.data.api.TodoServiceStub;
 
