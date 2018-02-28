@@ -11,4 +11,9 @@ public class TodoServiceStub implements TodoService{
 				);
 	}
 
+	public void deleteTodo(String todo) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

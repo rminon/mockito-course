@@ -4,7 +4,11 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -32,7 +36,7 @@ public class TodoBusinessImplMockTest {
 		
 	}
 	@Test
-	public void testRetrieveTodosRelatedToSpring_usingBDD() {
+	public void testDeleteTodosNotRelatedToSpring_usingBDD() {
 		
 		// Given -- Setup
 		TodoService todoServiceMock = mock(TodoService.class);
@@ -44,11 +48,14 @@ public class TodoBusinessImplMockTest {
 				new TodoBusinessImpl(todoServiceMock);
 		
 		//When
-		List <String> filteredTodos = 
-				todoBusinessImpl.retrieveTodosRelatedToSpring("Dummy");
+		todoBusinessImpl.deleteTodosNotRelatedToSpring("Dummy");
 
 		//Then
-		assertThat( filteredTodos.size(), is(2));
+		// To ensure that a method is call
+		verify(todoServiceMock).deleteTodo("Learn to Dance");
+		verify(todoServiceMock, times(1)).deleteTodo("Learn to Dance");
+		verify(todoServiceMock, atLeastOnce()).deleteTodo("Learn to Dance");
+		verify(todoServiceMock, never()).deleteTodo("Learn Spring");
 	}
 	
 	
